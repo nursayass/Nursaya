@@ -1,0 +1,20 @@
+//1
+let fruits = ["Apples", "Pear", "Orange"];
+let shoppingCart = fruits;
+shoppingCart.push("Banana");
+alert( fruits.length ); // 4
+
+//2
+let styles = ["Jazz", "Blues"];
+styles.push("Rock-n-Roll");
+styles[Math.floor((styles.length - 1) / 2)] = "Classics";
+alert( styles.shift() );
+styles.unshift("Rap", "Reggae");
+
+//3
+let arr = ["a", "b"];
+arr.push(function() {
+  alert( this );
+})
+arr[2](); // a,b,function(){...}
+
