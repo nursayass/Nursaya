@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Company, Vacancy
 
 
 # Create your views here.
-
+@csrf_exempt
 def get_companies(request, pk=None):
     if request.method == 'GET':
         if pk:
@@ -15,6 +16,8 @@ def get_companies(request, pk=None):
         data = serializers.serialize("json", companies)
 
         return HttpResponse(data, content_type='application/json', status=200)
+    elif request.method=="POST":
+        data=jsonLoad()
 
 
 def get_vacancies(request, pk_c=None, pk=None):
